@@ -1,0 +1,19 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  processimages:
+    lang: python
+    handler: ./processimages
+    image: processimages
+    environment:
+      minio_hostname: "192.168.0.35:9000"
+      minio_access_key: "67L5FZ4DGF58HG7SR5FY"
+      minio_secret_key: "W9HYUC03qIRJb06qENoZZ6ZXUGP9Z3DrGkK49dRY"
+      write_debug: true
+
+  convertbw:
+    skip_build: true
+    image: functions/resizer:latest
+    fprocess: "convert - -colorspace Gray fd:1"

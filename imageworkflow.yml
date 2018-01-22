@@ -1,0 +1,9 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  imageworkflow:
+    lang: python
+    handler: ./imageworkflow
+    image: imageworkflow

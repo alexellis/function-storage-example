@@ -1,0 +1,15 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  loadimages:
+    lang: python
+    handler: ./loadimages
+    image: loadimages
+    environment:
+      minio_hostname: "192.168.0.35:9000"
+      minio_access_key: "67L5FZ4DGF58HG7SR5FY"
+      minio_secret_key: "W9HYUC03qIRJb06qENoZZ6ZXUGP9Z3DrGkK49dRY"
+      write_debug: true
+
